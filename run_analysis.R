@@ -41,16 +41,8 @@ df <- merge(df, labels, by="activity")
 
 #answer 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 activitymeans <- colMeans(df[, 2:563])
-
-     # group and sex to be used without quoting
-     ddply(df, .(group, sex), summarize,  mean = round(mean(age), 2), sd = round(sd(age), 2))
 split <- sapply(split(df[,2:562], list(df$activity.description, df$subject)), colMeans) 
 write.csv(split, "tidy.csv")
-
-
-
-x <- mean(df[
-tidy <- subset(df, select="subject")
 
 
 
